@@ -1,12 +1,11 @@
 function DoctorCard(props){
     return(
-        <div>
+        <div className="card">
             <h3>Name : {props.name} </h3>
             <h3>Salary : {props.salary} </h3>
             <h3>Gender : {props.gender}</h3>
             <h3>Age : {props.age} </h3>
             <h3>Specialization : {props.specialization}</h3>
-            <hr></hr>
         </div>
     )
 }

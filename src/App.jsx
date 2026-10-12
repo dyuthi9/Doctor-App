@@ -37,30 +37,36 @@
 // export default App;
 
 
-import { useEffect, useState } from "react";
-import Navbar from "./component/Navbar";
-// import AddDoctor from "./pages/AddDoctor";
-import DoctorCard from "./component/DoctorCard";
+import Navbar from "./component/Navbar"
+import AddDoctor from "./pages/AddDoctor"
+import Home from "./pages/Home"
+// import useState from "react";
+// import filteredData from "./pages/Home"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import UpdateDoctor from "./pages/UpdateDoctor"
+import PageNotFound from "./pages/PageNotFound";
+import "./App.css"
 
 function App() {
-  let [data,setData]=useState([]);
-  let [search,setSearch]=useState("");
-  useEffect(()=>{
-    let res=fetch("https://api-bdti.onrender.com/doctors")
-                .then((resp) => resp.json())
-      .then((result) => {setData(result); console.log(result);})
-                .catch(error=>console.log(error))
-                console.log(res);
-  },[]);
-  let filterDoctor=data.filter((d)=>{
-    let dataFilter=d.name.toLowerCase().includes(search.toLowerCase());
-    return dataFilter;
+  // let [data,setData]=useState([]);
+  // let [search,setSearch]=useState("");
+  // useEffect(()=>{
+  //   let res=fetch("https://api-bdti.onrender.com/doctors")
+  //               .then((resp) => resp.json())
+  //     .then((result) => {setData(result); console.log(result);})
+  //               .catch(error=>console.log(error))
+  //               console.log(res);
+  // },[]);
+  // let filterDoctor=data.filter((d)=>{
+  //   let dataFilter=d.name.toLowerCase().includes(search.toLowerCase());
+  //   return dataFilter;
 
-  });
+  // });
 
 
   return(
     <>
+    <BrowserRouter>
     <Navbar/>
     {/* <DoctorCard name="Dyuthi" gender="Female" age={25} salary={500000} specialization="ENT"/>
     <hr></hr>
@@ -70,16 +76,21 @@ function App() {
     <hr></hr> */}
     {/* <AddDoctor/> */}
 
-    <label>Enter the Doctor Name :</label>
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path='/addDoctor' element={<AddDoctor/>}></Route>
+      <Route path='/updateDoctor/:id' element={<UpdateDoctor/>}></Route>
+      <Route path='*' element={<PageNotFound/>}></Route>
+    </Routes>
+    </BrowserRouter>
+    {/* <label>Enter the Doctor Name :</label>
     <input type="text" onChange={(e)=>{setSearch(e.target.value)}} value={search} />
     {
       filterDoctor.length>0?
       filterDoctor.map((d)=>(
         <DoctorCard key={d.id} name={d.name} salary={d.salary} gender={d.gender} age={d.age}  specialization={d.specialization}/>       
       )):<h1>No Doctors Found.</h1>
-    }
-
-
+    } */}
     </>
   )
 }

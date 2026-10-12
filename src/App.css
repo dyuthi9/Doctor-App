@@ -1,0 +1,18 @@
+.container{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.card{
+    width:23%;
+    border: 2px solid blue;
+    margin: 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.box{
+    margin-top: 25px;
+}

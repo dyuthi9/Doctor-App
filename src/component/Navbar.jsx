@@ -1,3 +1,5 @@
+import { Link,useNavigate } from "react-router-dom";
+
 function Navbar(){
     let style={
         display:"flex",
@@ -12,12 +14,13 @@ function Navbar(){
         color:"blue",
         border:"2px solid blue"
     }
+    let nav=useNavigate();
     return(
         <div style={style}>
             <h1>Doctor Application</h1>
             <div >
-                <button style={button}>Home</button> &nbsp;&nbsp;
-                <button style={button}>Add Doctor</button>
+                <button style={button}><Link to='/'>Home</Link></button> &nbsp;&nbsp;
+                <button style={button} onClick={()=>nav("/addDoctor")}>Add Doctor</button>
             </div>
         </div>
     )
