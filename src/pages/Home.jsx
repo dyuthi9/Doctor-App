@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Doctorcard from "../component/Doctorcard";
+import Doctorcard from "./component/Doctorcard";
 import axios from "axios";
 
 function Home() {
