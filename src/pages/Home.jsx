@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Doctorcard from "./component/Doctorcard";
+
 import axios from "axios";
+import DoctorCard from "../component/DoctorCard";
 
 function Home() {
     let [data, setData] = useState([]);
@@ -39,7 +40,7 @@ function Home() {
                 {
                     filteredData.length > 0 ?
                         filteredData.map((d) => {
-                            return <Doctorcard key={d.id} name={d.name} salary={d.salary} gender={d.gender} age={d.age} specialization={d.specialization} />;
+                            return <DoctorCard key={d.id} name={d.name} salary={d.salary} gender={d.gender} age={d.age} specialization={d.specialization} />;
                         }) : <h1>No doctors found</h1>
                 }
             </div>
