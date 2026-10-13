@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddDoctor(){
     let [name,setName]=useState("");
@@ -6,8 +8,9 @@ function AddDoctor(){
     let [gender,setGender]=useState("");
     let [age,setAge]=useState("");
     let [specialization,setSepcialization]=useState("");
+    let nav=useNavigate();
 
-    let handleSubmit =(e)=>{
+    let handleSubmit =async(e)=>{
         e.preventDefault();
         console.log("Name : "+name);
         console.log("Salary : "+salary);
@@ -15,11 +18,18 @@ function AddDoctor(){
         console.log("Gender : "+gender);
         console.log("Specialization : "+specialization);
 
+        let newDoctor={name,salary,gender,age,specialization};
+
+        let result=await axios.post("https://api-bdti.onrender.com/doctors/",newDoctor);//post the data 
+
+        alert('Doctor Added Successfully.')
+
         setName("");
         setSalary("");
         setGender("");
         setAge("");
         setSepcialization("");
+        nav("/")
     } 
     return(
         <div>
