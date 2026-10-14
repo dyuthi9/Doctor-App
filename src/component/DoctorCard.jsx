@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function DoctorCard(props){
     let navigator=useNavigate();
+    let user=localStorage.getItem("token");
     return(
         <div className="card">
             <h3>Name : {props.name} </h3>
@@ -10,8 +11,15 @@ function DoctorCard(props){
             <h3>Gender : {props.gender}</h3>
             <h3>Age : {props.age} </h3>
             <h3>Specialization : {props.specialization}</h3>
-            <button className="button1" style={{backgroundColor:"white"}} onClick={()=>navigator(`/updateDoctor/${props.id}`)}>Update </button>
+            {
+                user ? (
+                    <>
+                    <button className="button1" style={{backgroundColor:"white"}} onClick={()=>navigator(`/updateDoctor/${props.id}`)}>Update </button>
             <button className="button1" style={{backgroundColor:"lightcoral"}} onClick={()=>props.handleDelete(props.id)}>Delete </button>
+            </>
+        ) : ""
+            }
+            
         </div>
     )
 }

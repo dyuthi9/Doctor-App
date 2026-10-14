@@ -20,8 +20,8 @@ function Navbar(){
             <h1>Doctor Application</h1>
             <div >
                 <button style={button}><Link to='/'>Home</Link></button> &nbsp;&nbsp;
-                <button style={button} onClick={()=>nav("/addDoctor")}>Add Doctor</button>&nbsp;&nbsp;
-                <button style={button} onClick={()=>nav("/updateDoctor/:15")}>Update Doctor</button>
+                <button style={button} onClick={()=>nav("/addDoctor")}>Add Doctor</button>&nbsp;&nbsp;   
+                <button style={button} onClick={()=>nav("/login")}>Login In</button>
             </div>
         </div>
     )

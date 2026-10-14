@@ -33,16 +33,18 @@ function AddDoctor(){
     } 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <center>
+            <form onSubmit={handleSubmit} className="card1">
                 <h1>Add Doctor</h1>
-                <input type="text" placeholder=" Enter Your Name " value={name} onChange={(e)=>{setName(e.target.value)}} /><br/><br/>
-                <input type="text" placeholder=" Enter Your Salary " value={salary} onChange={(e)=>{setSalary(e.target.value)}}/><br/><br/>
-                <input type="text" placeholder=" Enter Your Gender " value={gender} onChange={(e)=>{setGender(e.target.value)}}/><br/><br/>
-                <input type="text" placeholder=" Enter Your Age " value={age} onChange={(e)=>{setAge(e.target.value)}}/><br/><br/>
-                <input type="text" placeholder=" Enter Your Sepcialization " value={specialization} onChange={(e)=>{setSepcialization(e.target.value)}}/><br/><br/>
-                <input type="submit"  />
+                <input className="input1" type="text" placeholder=" Enter Your Name " value={name} onChange={(e)=>{setName(e.target.value)}} /><br/><br/>
+                <input className="input1" type="text" placeholder=" Enter Your Salary " value={salary} onChange={(e)=>{setSalary(e.target.value)}}/><br/><br/>
+                <input className="input1" type="text" placeholder=" Enter Your Gender " value={gender} onChange={(e)=>{setGender(e.target.value)}}/><br/><br/>
+                <input className="input1" type="text" placeholder=" Enter Your Age " value={age} onChange={(e)=>{setAge(e.target.value)}}/><br/><br/>
+                <input className="input1" type="text" placeholder=" Enter Your Sepcialization " value={specialization} onChange={(e)=>{setSepcialization(e.target.value)}}/><br/><br/>
+                <input className="button2" type="submit"  />
 
             </form>
+            </center>
         </div>
     )
 }

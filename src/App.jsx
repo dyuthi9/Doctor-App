@@ -45,7 +45,9 @@ import Home from "./pages/Home"
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import UpdateDoctor from "./pages/UpdateDoctor"
 import PageNotFound from "./pages/PageNotFound";
+import Login from "./pages/Login"
 import "./App.css"
+import ProtectedRoute from "./component/ProtectedRoute"
 
 function App() {
   // let [data,setData]=useState([]);
@@ -78,8 +80,9 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Home/>}></Route>
-      <Route path='/addDoctor' element={<AddDoctor/>}></Route>
+      <Route path='/addDoctor' element={<ProtectedRoute><AddDoctor/></ProtectedRoute>}></Route>
       <Route path='/updateDoctor/:id' element={<UpdateDoctor/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
       <Route path='*' element={<PageNotFound/>}></Route>
     </Routes>
     </BrowserRouter>
