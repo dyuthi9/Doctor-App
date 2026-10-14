@@ -19,7 +19,7 @@ function Login(){
 
         if(res.status===200){
             nav("/")
-            localStorage.setItem("token",res.data.email);
+            localStorage.setItem("token",res.data.patient.email);
         }
         setEmail("");
         setPassword("");
