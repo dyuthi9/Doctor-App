@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import axios from "axios";
 import DoctorCard from "../component/DoctorCard";
@@ -29,10 +29,12 @@ function Home() {
     useEffect(() => {
         getDetails();
     }, [])
-    let filteredData = data.filter((d) => {
+    let filteredData =useMemo(()=>{
+    return data.filter((d) => {
         let datafilter = d.name.toLowerCase().includes(search.toLowerCase());
         return datafilter;
-    });
+    })
+    },[data,search])
 
     let handleDelete = async (id) => {
         try {
@@ -50,7 +52,7 @@ function Home() {
         <>
             <div className="box">
                 <label>Search for doctors:</label>
-                <input className="input1" type="text" onChange={(e) => { setSearch(e.target.value) }} value={search} />
+                <input className="input1" placeholder="Enter Doctor Name" type="text" onChange={(e) => { setSearch(e.target.value) }} value={search} />
             </div>
             <div className="container">
                 {

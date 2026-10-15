@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/ContextData";
 
 
 function DoctorCard(props){
     let navigator=useNavigate();
-    let user=localStorage.getItem("token");
+    // let user=localStorage.getItem("token");
+    let {user} = useContext(UserContext)
     return(
         <div className="card">
             <h3>Name : {props.name} </h3>

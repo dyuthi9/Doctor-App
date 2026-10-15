@@ -1,13 +1,20 @@
+
 import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({childern}){
+function ProtectedRoute({ children }) {
     let token = localStorage.getItem("token");
-    return(
+
+    return (
         <>
             {
-                token ?(<div>{childern}</div>) : (<Navigate to="/login" replace/>)
+                token ? (
+                    children
+                ) : (
+                    <Navigate to="/login" replace />
+                )
             }
         </>
-    )
+    );
 }
+
 export default ProtectedRoute;

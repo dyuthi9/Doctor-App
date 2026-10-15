@@ -18,7 +18,9 @@
 .box {
     margin-top: 25px;
 }
-
+a{
+    text-decoration: none;
+}
 .button1 {
     display: block;
     padding: 10px 15px;

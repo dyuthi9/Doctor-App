@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {UserContext} from "../context/ContextData";
 
 function Login(){
     let [email,setEmail]=useState("");
     let [password,setPassword]=useState("");
     let nav=useNavigate();
+    let {loginUser}=useContext(UserContext)
 
     let handleLogin= async(e)=>{
         try{
@@ -18,8 +20,9 @@ function Login(){
         console.log(res);
 
         if(res.status===200){
+            loginUser(email);
             nav("/")
-            localStorage.setItem("token",res.data.patient.email);
+            // localStorage.setItem("token",res.data.patient.email);
         }
         setEmail("");
         setPassword("");
